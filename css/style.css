@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(0deg, rgba(219,219,210,1) 85%, rgba(0,150,136,1) 85%);
+    height: 100vh;
+}
