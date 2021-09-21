@@ -48,6 +48,7 @@
             <div  class="contacts">
                 <div v-for="(contact, index) in contacts" 
                 @click="changeContact(index)" 
+                :class="{active: currentContact == index}"
                 :key="index" 
                 class="contact">
                     <div class="img-contact">

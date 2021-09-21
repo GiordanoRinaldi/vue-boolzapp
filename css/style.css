@@ -146,11 +146,11 @@ input[type="text"] {
     background-color: #e9ebeb;
 }
 
-/*da cambiare poi con il js al click non :active ma classe vera e propria*/
-.contact:active {
+
+.contact.active {
     background-color: #b6b6b6;
 }
-/*da cambiare poi con il js al click non :active ma classe vera e propria*/
+
 
 .img-contact {
     margin-right: 10px;
