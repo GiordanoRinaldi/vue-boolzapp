@@ -85,6 +85,11 @@ const app = new Vue({
         ]
     },
     methods: {
+        getImg: function(avatar) {
+            let image = `img/avatar${avatar}.jpg`;
+            return image
+        },
+        
 
     },
 });

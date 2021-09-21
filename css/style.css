@@ -131,7 +131,7 @@ input[type="text"] {
 .contact {
     border-top: 1px solid #e9ebeb ;
     display: flex;
-    height: 80px;
+    max-height: 80px;
     padding: 10px 0 10px 20px;
     cursor: pointer;
 }
