@@ -82,12 +82,19 @@ const app = new Vue({
                     }
                 ],
             },
-        ]
+        ],
+
+        currentContact: 0,
     },
+
     methods: {
         getImg: function(avatar) {
             let image = `img/avatar${avatar}.jpg`;
             return image
+        },
+        changeContact: function(index){
+            this.currentContact = index;
+            return index;
         },
         
 

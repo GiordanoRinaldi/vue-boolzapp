@@ -46,7 +46,10 @@
                 <input class="searchbar" type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
             <div  class="contacts">
-                <div v-for="contact in contacts" class="contact">
+                <div v-for="(contact, index) in contacts" 
+                @click="changeContact(index)" 
+                :key="index" 
+                class="contact">
                     <div class="img-contact">
                         <img :src="getImg(contact.avatar)" alt="">
                     </div>
@@ -56,8 +59,20 @@
         </nav>
         <!--sezione chat-->
         <section class="conversation">
-            <div>
-
+            <div  class="conversation-top">
+                <div class="img-user">
+                    <img :src="getImg(contacts[currentContact].avatar)" alt="">
+                </div>
+                <div>
+                    <strong>{{contacts[currentContact].name}}</strong>
+                    <br>
+                    <div class="access">Ultimo accesso alle</div>
+                </div>
+                <span class="icons-user">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </span>
             </div>
         </section>
     </div>
