@@ -14,9 +14,9 @@ body {
 
 /*sezione nav*/
 nav {
+    background-color: white;
     display: flex;
     flex-direction: column;
-    background-color: #eaeaea;
     width: 30%;
     height: 90vh;
     margin-top: 5vh;
@@ -25,6 +25,7 @@ nav {
 
 /*sezione nome utente*/
 .user {
+    background-color: #eaeaea;
     display: flex;
     align-items: center;
     height: 70px ;
@@ -117,6 +118,44 @@ input[type="text"] {
 
 .searchbar:focus-visible {
     outline: none;
+}
+
+/*contatti*/
+
+.contacts {
+    height: calc(100% - 200px);
+    overflow-y: auto;
+    background-color: white;
+}
+
+.contact {
+    border-top: 1px solid #e9ebeb ;
+    display: flex;
+    height: 80px;
+    padding: 10px 0 10px 20px;
+    cursor: pointer;
+}
+
+.contact:hover {
+    background-color: #e9ebeb;
+}
+
+/*da cambiare poi con il js al click non :active ma classe vera e propria*/
+.contact:active {
+    background-color: #b6b6b6;
+}
+/*da cambiare poi con il js al click non :active ma classe vera e propria*/
+
+.img-contact {
+    margin-right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img-contact img {
+    width: 100%;
 }
 
 
