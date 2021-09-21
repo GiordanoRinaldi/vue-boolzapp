@@ -87,5 +87,37 @@ nav {
     cursor: pointer;
 }
 
+/*barra ricerca*/
+
+.search {
+    display: flex;
+    height: 50px;
+    background-color: #fafafa;
+    padding: 8px;
+}
+
+.search div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    background-color: white;
+    color: #b1b1b1;
+    border: 1px solid #f5f5f5;
+}
+
+.searchbar {
+    border: 1px solid #f5f5f5;
+    width: 100%;
+}
+
+input[type="text"] {
+    padding-left: 10px;
+}
+
+.searchbar:focus-visible {
+    outline: none;
+}
+
 
 
