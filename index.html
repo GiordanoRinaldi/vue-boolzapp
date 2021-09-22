@@ -62,10 +62,10 @@
         <section class="conversation">
             <div  class="conversation-top">
                 <div class="img-user">
-                    <img :src="getImg(contacts[currentContact].avatar)" alt="">
+                    <img :src="getImg(filteredContacts[currentContact].avatar)" alt="">
                 </div>
                 <div>
-                    <strong>{{contacts[currentContact].name}}</strong>
+                    <strong>{{filteredContacts[currentContact].name}}</strong>
                     <br>
                     <div class="access">Ultimo accesso alle</div>
                 </div>
