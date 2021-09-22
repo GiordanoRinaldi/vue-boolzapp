@@ -86,6 +86,8 @@ const app = new Vue({
 
         currentContact: 0,
 
+        searchContact: null,
+
         messageInput : "",
     },
 
@@ -121,4 +123,15 @@ const app = new Vue({
             }, 1000)
         },
     },
+    computed: {
+        filteredContacts(){
+            if(this.searchContact){
+                return this.contacts.filter((contact)=> {
+                    return this.searchContact.toLowerCase().split(' ').every(v => contact.name.toLowerCase().includes(v))
+                })
+            }else{
+                return this.contacts;
+            }
+        }
+    }
 });

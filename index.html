@@ -43,10 +43,10 @@
                 <div>
                     <i class="fas fa-search"></i>
                 </div>
-                <input class="searchbar" type="text" placeholder="Cerca o inizia una nuova chat">
+                <input v-model="searchContact" class="searchbar" type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
             <div  class="contacts">
-                <div v-for="(contact, index) in contacts" 
+                <div v-for="(contact, index) in filteredContacts" 
                 @click="changeContact(index)" 
                 :class="{active: currentContact == index}"
                 :key="index" 
