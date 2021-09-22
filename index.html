@@ -75,7 +75,15 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </span>
             </div>
-            <div class="conversation-messages"></div>
+            <div  class="conversation-messages">
+                <div v-for="(message, index) in contacts[currentContact].messages" class="message" :class="message.status">
+                    <div class="message-text">
+                        <strong>{{message.message}}</strong> 
+                        <div class="message-date">{{message.date}}</div>
+                    </div>
+                </div>
+
+            </div>
             <div class="conversation-input">
                 <div class="emoji">
                     <i class="far fa-smile"></i>

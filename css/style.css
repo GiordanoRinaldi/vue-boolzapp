@@ -130,7 +130,7 @@ input[type="text"] {
 
 .contacts {
     height: calc(100% - 200px);
-    overflow-y: auto;
+    overflow-y: scroll;
     background-color: white;
 }
 
@@ -184,6 +184,36 @@ input[type="text"] {
 
 .access {
     color: #b1b1b1;
+}
+
+/*parte centrale*/ 
+.conversation-messages {
+    height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+    padding: 55px 115px 0 100px;
+}
+
+.message {
+    position: relative;
+    width: 315px;
+    padding: 18px 15px ;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.sent {
+    background-color: #d5f9ba;
+    margin-left: auto;
+}
+
+.message-date {
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+    font-size: 9px;
+    color: #bbbec0;
 }
 
 /*parte sotto*/
