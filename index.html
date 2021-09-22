@@ -76,7 +76,7 @@
                 </span>
             </div>
             <div  class="conversation-messages">
-                <div v-for="(message, index) in contacts[currentContact].messages" class="message" :class="message.status">
+                <div v-for="(message, index) in filteredContacts[currentContact].messages" class="message" :class="message.status">
                     <div class="message-text">
                         <strong>{{message.message}}</strong> 
                         <div class="message-date">{{message.date}}</div>
