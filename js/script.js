@@ -106,9 +106,19 @@ const app = new Vue({
             };
             if (this.messageInput != "") {
                 this.contacts[this.currentContact].messages.push(newMessage); 
-                this.messageInput = ""
+                this.messageInput = "";
+                this.replyContact();
             };
         },
-
+        replyContact: function() {
+            setTimeout(() => {
+                let newMessageContact = {
+                    date: '10/01/2020 15:50:02',
+                    message: "ok",
+                    status: 'received'
+                }
+                this.contacts[this.currentContact].messages.push(newMessageContact);
+            }, 1000)
+        },
     },
 });
