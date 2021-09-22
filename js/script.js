@@ -10,12 +10,14 @@ const app = new Vue({
                     {
                         date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
+                        delMessage : false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Ricordati di dargli da mangiare',
-                        status: 'sent'
+                        status: 'sent',
+                        delMessage : false
                     },
                     {
                         date: '10/01/2020 16:15:22',
@@ -31,7 +33,8 @@ const app = new Vue({
                 messages: [{
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
-                    status: 'sent'
+                    status: 'sent',
+                    delMessage : false
                 },
                     {
                         date: '20/03/2020 16:30:55',
@@ -57,7 +60,8 @@ const app = new Vue({
                     {
                         date: '28/03/2020 10:20:10',
                         message: 'Sicuro di non aver sbagliato chat?',
-                        status: 'sent'
+                        status: 'sent',
+                        delMessage : false
                     },
                     {
                         date: '28/03/2020 16:15:22',
@@ -73,7 +77,8 @@ const app = new Vue({
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
-                    status: 'sent'
+                    status: 'sent',
+                    delMessage : false
                 },
                     {
                         date: '10/01/2020 15:50:00',
@@ -89,6 +94,10 @@ const app = new Vue({
         searchContact: null,
 
         messageInput : "",
+
+        addTrash : "sent",
+
+        trash : "banana",
     },
 
     methods: {
@@ -104,7 +113,8 @@ const app = new Vue({
             let newMessage = {
                 date: '10/01/2020 15:50:00',
                 message: this.messageInput,
-                status: 'sent'
+                status: 'sent',
+                delMessage : false
             };
             if (this.messageInput != "") {
                 this.contacts[this.currentContact].messages.push(newMessage); 
@@ -117,11 +127,18 @@ const app = new Vue({
                 let newMessageContact = {
                     date: '10/01/2020 15:50:02',
                     message: "ok",
-                    status: 'received'
+                    status: 'received',
                 }
                 this.contacts[this.currentContact].messages.push(newMessageContact);
             }, 1000)
         },
+        deleteMessage: function(index){
+            this.contacts[this.currentContact].messages[index].delMessage = true  
+        },
+        removeMessage: function(index){
+            this.contacts[this.currentContact].messages.splice(index, 1);
+        },
+        
     },
     computed: {
         filteredContacts(){

@@ -52,7 +52,7 @@
                 :key="index" 
                 class="contact">
                     <div class="img-contact">
-                        <img :src="getImg(contact.avatar)" alt="">
+                        <img :src="`img/avatar` + contact.avatar + `.jpg`"  alt="">
                     </div>
                     <div><strong>{{contact.name}}</strong></div>
                 </div>
@@ -62,7 +62,7 @@
         <section class="conversation">
             <div  class="conversation-top">
                 <div class="img-user">
-                    <img :src="getImg(filteredContacts[currentContact].avatar)" alt="">
+                    <img :src="`img/avatar` + filteredContacts[currentContact].avatar + `.jpg`" alt="">
                 </div>
                 <div>
                     <strong>{{filteredContacts[currentContact].name}}</strong>
@@ -78,6 +78,11 @@
             <div  class="conversation-messages">
                 <div v-for="(message, index) in filteredContacts[currentContact].messages" class="message" :class="message.status">
                     <div class="message-text">
+                        <span v-if="message.status == addTrash" :class="message.status == addTrash ? trash : null" @click="removeMessage(index)" @click="deleteMessage(index)">
+                           <!--<span v-if="message.delMessage == true"  class="deleteMessage" @click="removeMessage(index)">
+                                Elimina   
+                            </span>--> 
+                        </span>
                         <strong>{{message.message}}</strong> 
                         <div class="message-date">{{message.date}}</div>
                     </div>
