@@ -43,16 +43,17 @@
                 <div>
                     <i class="fas fa-search"></i>
                 </div>
-                <input v-model="searchContact" class="searchbar" type="text" placeholder="Cerca o inizia una nuova chat">
+                <input v-model="messageInput" class="searchbar" type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
             <div  class="contacts">
-                <div v-for="(contact, index) in filteredContacts" 
+                <div v-for="(contact, index) in contacts" 
                 @click="changeContact(index)" 
                 :class="{active: currentContact == index}"
                 :key="index" 
-                class="contact">
+                class="contact"
+                v-show="contact.name.toLowerCase().includes(messageInput.toLowerCase())">
                     <div class="img-contact">
-                        <img :src="`img/avatar` + contact.avatar + `.jpg`"  alt="">
+                        <img :src="getImg(contact.avatar)" alt="">
                     </div>
                     <div><strong>{{contact.name}}</strong></div>
                 </div>
@@ -62,10 +63,10 @@
         <section class="conversation">
             <div  class="conversation-top">
                 <div class="img-user">
-                    <img :src="`img/avatar` + filteredContacts[currentContact].avatar + `.jpg`" alt="">
+                    <img :src="getImg(contacts[currentContact].avatar)" alt="">
                 </div>
                 <div>
-                    <strong>{{filteredContacts[currentContact].name}}</strong>
+                    <strong>{{contacts[currentContact].name}}</strong>
                     <br>
                     <div class="access">Ultimo accesso alle</div>
                 </div>
@@ -76,15 +77,20 @@
                 </span>
             </div>
             <div  class="conversation-messages">
-                <div v-for="(message, index) in filteredContacts[currentContact].messages" class="message" :class="message.status">
+                <div v-for="(message, index) in contacts[currentContact].messages" class="message" :class="message.status">
                     <div class="message-text">
-                        <span v-if="message.status == addTrash" :class="message.status == addTrash ? trash : null" @click="removeMessage(index)" @click="deleteMessage(index)">
-                           <!--<span v-if="message.delMessage == true"  class="deleteMessage" @click="removeMessage(index)">
-                                Elimina   
-                            </span>--> 
-                        </span>
                         <strong>{{message.message}}</strong> 
                         <div class="message-date">{{message.date}}</div>
+                        <div class="info-message">
+                            <i  class="fas fa-chevron-down"
+                                @click="toggleHidden(index)" ></i>
+                        </div>
+                        <div class="delete-message"
+                            v-if="hidden == index">
+                            <div class="info-text" ><strong>Info messaggio</strong> </div>
+                            
+                            <div class="delete-text" @click="deleteMessage(index)"><strong> Cancella messaggio</strong></div>
+                        </div>
                     </div>
                 </div>
 
@@ -108,4 +114,3 @@
     <!--js-->
     <script src="js/script.js"></script>
 </body>
-</html>

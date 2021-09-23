@@ -204,35 +204,8 @@ input[type="text"] {
 }
 
 .sent {
-    position: relative;
     background-color: #d5f9ba;
     margin-left: auto;
-}
-
-.banana::after {
-    font-family: "Font Awesome 5 Free"; 
-    font-weight: 900; 
-    content: "\f2ed";
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    font-size: 15px;
-    color: rgb(223, 23, 23);
-    cursor: pointer;
-
-}
-
-.deleteMessage {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background-color: #eaeaea;
-    z-index: 1;
-    padding: 7px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3);
-    cursor: pointer;
-
 }
 
 .message-date {
@@ -242,6 +215,38 @@ input[type="text"] {
     font-size: 9px;
     color: #bbbec0;
 }
+
+.info-message {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    font-size: 15px;
+    color: #6b7376;
+    cursor: pointer;
+}
+
+.delete-message {
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    background: white;
+    z-index: 1;
+    padding: 8px 0;
+    line-height: 35px;
+    border-radius: 3px;
+    box-shadow:  0px 0px 14px 3px rgba(0,0,0,0.3); 
+} 
+
+.delete-message div {
+    padding: 0px 25px;
+}
+
+.info-text:hover, .delete-text:hover {
+    background: rgb(233, 232, 232);
+    cursor: pointer;
+}
+
+
 
 /*parte sotto*/
 .conversation-input {
@@ -270,3 +275,6 @@ input[type="text"] {
     font-size: 20px;
     color: #6b7376;
 }
+
+
+
