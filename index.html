@@ -43,7 +43,7 @@
                 <div>
                     <i class="fas fa-search"></i>
                 </div>
-                <input v-model="messageInput" class="searchbar" type="text" placeholder="Cerca o inizia una nuova chat">
+                <input v-model="contactInput" class="searchbar" type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
             <div  class="contacts">
                 <div v-for="(contact, index) in contacts" 
@@ -51,7 +51,7 @@
                 :class="{active: currentContact == index}"
                 :key="index" 
                 class="contact"
-                v-show="contact.name.toLowerCase().includes(messageInput.toLowerCase())">
+                v-show="contact.name.toLowerCase().includes(contactInput.toLowerCase())">
                     <div class="img-contact">
                         <img :src="getImg(contact.avatar)" alt="">
                     </div>
