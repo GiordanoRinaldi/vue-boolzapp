@@ -86,6 +86,8 @@ const app = new Vue({
 
         currentContact: 0,
 
+        clickContact : true,
+
         contactInput : "",
 
         messageInput : "",
@@ -93,6 +95,7 @@ const app = new Vue({
         hidden: -1,
 
         currentMessage: -1,
+
     },
 
     methods: {
@@ -106,7 +109,7 @@ const app = new Vue({
         },
         addMessage: function(){
             let newMessage = {
-                date: '10/01/2020 15:50:00',
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message: this.messageInput,
                 status: 'sent'
             };
@@ -119,20 +122,27 @@ const app = new Vue({
         replyContact: function() {
             setTimeout(() => {
                 let newMessageContact = {
-                    date: '10/01/2020 15:50:02',
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     message: "ok",
                     status: 'received'
                 }
                 this.contacts[this.currentContact].messages.push(newMessageContact);
-            }, 1000)
+            }, 2000)
         },
         toggleHidden: function(index){
             if(this.hidden == -1){
                 this.hidden = index;
-                this.currentMessage = index
+                this.currentMessage = index;
+                this.changeContact = function(){
+                    return null
+                }
             } else if(this.hidden == index) {
                 this.hidden = -1;
-                this.currentMessage = -1
+                this.currentMessage = -1;
+                this.changeContact = function(index){
+                    this.currentContact = index;
+                    return index;
+                }
             }
         },
         deleteMessage: function(index){
