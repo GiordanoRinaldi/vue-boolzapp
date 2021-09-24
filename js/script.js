@@ -148,7 +148,11 @@ const app = new Vue({
         deleteMessage: function(index){
             this.contacts[this.currentContact].messages.splice(index, 1);
             this.hidden = -1;
-            this.currentMessage = -1
+            this.currentMessage = -1;
+            this.changeContact = function(index){
+                this.currentContact = index;
+                return index;
+            }
         },
     },
 });
